@@ -2,25 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Order;
-
+use Illuminate\Http\Request;
 
 use PDF;
 
 class PDFController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generatePDF()
+    {
         $order = Order::get();
-        return view('livewire.eporte-pdf-component',compact('order'));
 
-        }
-        public function eportpdf(){
-            $order = Order::all();
+        $data = [
+            'title' => 'Welcome to ItSolutionStuff.com',
+            'date' => date('m/d/Y'),
+            'subtotal' => 0,
+            'tax' => 0,
+            'total' => 0,
+            'order' => $order
+        ];
 
-            $pdf = PDF::loadView('livewire.eporte-pdf-component',['Order'=>$order]);
-            return $pdf->download('order'.rand(1,1000).'.pdf');}
+        $pdf = PDF::loadView('myPDF', $data);
 
-
-
+        return $pdf->download('itsolutionstuff.pdf');
+    }
 }

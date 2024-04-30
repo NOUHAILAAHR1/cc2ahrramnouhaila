@@ -373,7 +373,8 @@
                                         </table>
                                     </div>
                                     <a href="#" class="btn " wire:click.prevent="checkout"> <i class="fi-rs-box-alt mr-10"></i> Proceed To CheckOut</a>
-                                     
+
+
 
                                 </div>
                             </div>

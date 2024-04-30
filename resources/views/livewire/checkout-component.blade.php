@@ -209,8 +209,10 @@
                                         @error('paymentmode') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-fill-out btn-block mt-30">Place Order Now</button>
+                               {{-- <button> <a href="{{route('generatePDF')}}" class="btn btn-fill-out btn-block mt-30">PDF</a></button>--}}
+
+
 
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controller\PDFController;
+
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
@@ -25,14 +25,13 @@ use App\Http\Livewire\admin\AdminUsersComponent;
 use App\Http\Livewire\admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\SearchComponent;
-use App\Http\Livewire\WishlistComponent;
+
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\user\UserDashboardComponent;
 use App\Http\Livewire\user\UserOrdersComponent;
 use App\Http\Livewire\user\UserOrderDetailsComponent;
-use App\Http\Livewire\user\UserReviewComponent;
-use App\Http\Livewire\EXportPdfComponent;
+//use App\Http\Controllers\PDFController;
 
 
 
@@ -67,7 +66,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/orders',UserOrdersComponent::class)->name('user.orders');
     Route::get('/user/orders/{order_id}',UserOrderDetailsComponent::class)->name('user.orderdetails');
-  
+
 
 });
 //For admin
@@ -91,7 +90,7 @@ Route::middleware(['auth','authadmin'])->group(function(){
 
 
 });
-
+//Route::get('generatePDF', [PDFController::class,'generatePDF']);
 Route::get('/',HomeComponent::class)->name('home.index');
 Route::get('/shop',ShopComponent::class)->name('shop');
 Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
@@ -102,6 +101,9 @@ Route::get('/product-category/{slug}',CategoryComponent::class)->name('product.c
 Route::get('/search',SearchComponent::class)->name('product.search');
 Route::get('/contact-us',ContactComponent::class)->name('contact');
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
+
+
+
 
 
 

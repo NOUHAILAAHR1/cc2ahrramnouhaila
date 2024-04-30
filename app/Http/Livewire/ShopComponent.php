@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 use Cart;
 use PhpParser\Node\Stmt\Foreach_;
 
+
+
 class ShopComponent extends Component
 {
     use WithPagination;
